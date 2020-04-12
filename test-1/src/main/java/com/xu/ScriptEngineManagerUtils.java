@@ -15,13 +15,12 @@ public class ScriptEngineManagerUtils {
         scriptEngine = scriptEngineManager.getEngineByName("JavaScript");
     }
 
-    public String runJs(String jsText){
+    public void eval(String jsText){
         try {
-            scriptEngine.eval(jsText+"function tel(){return str;}");
+            scriptEngine.eval(jsText);
         } catch (ScriptException e) {
             e.printStackTrace();
         }
-        return (String) scriptEngine.get("str");
     };
 
     public Object getVar(String varName){

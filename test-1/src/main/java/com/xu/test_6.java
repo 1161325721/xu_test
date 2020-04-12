@@ -12,14 +12,12 @@ public class test_6 {
 
         String url = "http://www.52jiaozhou.com/m/classad/1140780.aspx";
         String html = new HttpClientUtils().doGet(url);
-
         Document document = Jsoup.parse(html);
         String script = document.select("article script").first().data();
-
         String newScript = script.substring(0, script.indexOf("$('tel')"));
-        System.out.println(new ScriptEngineManagerUtils().runJs(newScript));
-
-
+        ScriptEngineManagerUtils s = new ScriptEngineManagerUtils();
+        s.eval(newScript);
+        System.out.println(s.getVar("str"));
 
     }
 
