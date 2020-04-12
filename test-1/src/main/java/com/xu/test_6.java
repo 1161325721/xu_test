@@ -17,13 +17,8 @@ public class test_6 {
         String script = document.select("article script").first().data();
 
         String newScript = script.substring(0, script.indexOf("$('tel')"));
-        try {
-            System.out.println(new ScriptEngineManagerUtils().runJs(newScript));
-        } catch (ScriptException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
+        System.out.println(new ScriptEngineManagerUtils().runJs(newScript));
+
 
 
     }
